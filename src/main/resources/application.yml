@@ -1,0 +1,33 @@
+# app
+spring:
+  application:
+    name: pending-address-processor
+  rabbitmq:
+    listener:
+      simple:
+        default-requeue-rejected: false
+        retry:
+          enabled: true
+          max-attempts: 3
+          initial-interval: 5s
+          multiplier: 2
+
+# messaging
+queue:
+  name: queue-test
+
+exchange:
+  name: exchange-test
+
+routing:
+  key: routing-key-test
+
+# doc
+springdoc:
+  swagger-ui:
+    path: /doc.html
+
+# logging
+logging:
+  level:
+    org.springframework.web: DEBUG
